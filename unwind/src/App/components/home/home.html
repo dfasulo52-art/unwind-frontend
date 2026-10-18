@@ -1,0 +1,166 @@
+<div class="lounge-wrapper">
+  <header class="lounge-navbar">
+    <div class="brand-container">
+      <a routerLink="/" class="brand-text-link">
+        <span class="brand-title">UNWIND</span>
+        <span class="brand-subtitle">NAPOLI LOUNGE</span>
+      </a>
+    </div>
+    
+    <div class="header-actions">
+      <button (click)="apriLoginModal()" class="btn-admin">
+        <span class="icon">🔒</span> Area Riservata
+      </button>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-badge">Est. 2026 • Exclusive Lounge</div>
+    <h1 class="hero-title">UNWIND NAPOLI LOUNGE</h1>
+    <p class="hero-subtitle">Selezione raffinata di cartine, filtri, sigari e accessori da fumo pregiati.</p>
+
+    <div class="filter-bar">
+      <div class="search-box">
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          (input)="applicaFiltroRicerca()" 
+          placeholder="Cerca nella collezione..." 
+          class="search-input"
+        >
+      </div>
+
+      <div class="category-buttons">
+        <button (click)="caricaProdotti('tutti')" [class.active]="categoriaSelezionata === 'tutti'" class="cat-btn">Tutti gli Articoli</button>
+        <button (click)="caricaProdotti('cartine')" [class.active]="categoriaSelezionata === 'cartine'" class="cat-btn">Cartine</button>
+        <button (click)="caricaProdotti('filtri')" [class.active]="categoriaSelezionata === 'filtri'" class="cat-btn">Filtri</button>
+        <button (click)="caricaProdotti('accessori')" [class.active]="categoriaSelezionata === 'accessori'" class="cat-btn">Accessori</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    @if (prodottiFiltrati.length === 0) {
+      <div class="no-products">
+        <div class="no-products-icon">🍂</div>
+        <p>Nessun articolo trovato nella selezione corrente.</p>
+      </div>
+    } @else {
+      <div class="products-grid">
+        @for (p of prodottiFiltrati; track p.id) {
+          <article class="product-card">
+            <div class="card-image-wrapper">
+              @if (p.foto) {
+                <img [src]="'http://localhost:8080/uploads/' + p.foto" [alt]="p.titolo" class="product-image">
+              } @else {
+                <div class="placeholder-image">
+                  <span class="placeholder-text">UNWIND</span>
+                </div>
+              }
+              <span class="category-badge">{{ p.categoria }}</span>
+            </div>
+
+            <div class="card-content-minimal">
+              <h3 class="product-title-minimal">{{ p.titolo }}</h3>
+              <div class="card-footer-minimal">
+                <span class="product-price">€ {{ p.prezzo | number:'1.2-2' }}</span>
+                <button class="btn-info" (click)="apriDettagli(p)">+ Info</button>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </main>
+
+  @if (prodottoSelezionato) {
+    <div class="modal-backdrop" (click)="chiudiDettagli()">
+      <div class="modal-card" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="chiudiDettagli()">×</button>
+        
+        <div class="modal-image-container">
+          @if (prodottoSelezionato.foto) {
+            <img [src]="'http://localhost:8080/uploads/' + prodottoSelezionato.foto" [alt]="prodottoSelezionato.titolo" class="modal-image">
+          } @else {
+            <div class="placeholder-image">
+              <span class="placeholder-text">UNWIND</span>
+            </div>
+          }
+        </div>
+
+        <div class="modal-details">
+          <span class="modal-category">{{ prodottoSelezionato.categoria }}</span>
+          <h2 class="modal-title">{{ prodottoSelezionato.titolo }}</h2>
+          <p class="modal-desc">{{ prodottoSelezionato.descrizione }}</p>
+          
+          <div class="modal-price-row">
+            <span class="price-label">Prezzo</span>
+            <span class="product-price">€ {{ prodottoSelezionato.prezzo | number:'1.2-2' }}</span>
+          </div>
+
+          <div class="modal-email-box">
+            <p class="email-box-title">Per informazioni e ordini:</p>
+            <span class="email-address-text">unwind.project00@gmail.com</span>
+
+            <div class="email-actions-grid">
+              <a [href]="'https://mail.google.com/mail/?view=cm&fs=1&to=unwind.project00@gmail.com&su=Richiesta%20Info:%20' + prodottoSelezionato.titolo" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn-email-action btn-gmail">
+                🌐 Invia via Gmail
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (mostraLoginModal) {
+    <div class="modal-backdrop" (click)="chiudiLoginModal()">
+      <div class="modal-card login-modal" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="chiudiLoginModal()">×</button>
+        
+        <div class="login-header">
+          <span class="login-icon">🔒</span>
+          <h2 class="login-title">Area Riservata</h2>
+          <p class="login-subtitle">Inserisci le credenziali di accesso registrate nel database.</p>
+        </div>
+
+        <form (ngSubmit)="eseguiLogin()" class="login-form">
+          <div class="form-group">
+            <label>Email Amministratore</label>
+            <input 
+              type="email" 
+              [(ngModel)]="emailInput" 
+              name="email" 
+              required 
+              placeholder="Inserisci email..."
+              class="login-input"
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input 
+              type="password" 
+              [(ngModel)]="passwordInput" 
+              name="password" 
+              required 
+              placeholder="••••••••"
+              class="login-input"
+            >
+          </div>
+
+          @if (loginError) {
+            <div class="login-error-msg">
+              ⚠️ Credenziali non valide o non registrate nel database.
+            </div>
+          }
+
+          <button type="submit" class="btn-login-submit">Verifica e Accedi</button>
+        </form>
+      </div>
+    </div>
+  }
+</div>

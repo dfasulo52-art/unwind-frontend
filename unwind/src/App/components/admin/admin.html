@@ -1,0 +1,138 @@
+<div class="lounge-wrapper">
+  <!-- Navbar Admin -->
+  <header class="lounge-navbar">
+    <div class="brand-container">
+      <a routerLink="/" class="brand-text-link">
+        <span class="brand-title">UNWIND</span>
+        <span class="brand-subtitle">NAPOLI LOUNGE • ADMIN</span>
+      </a>
+    </div>
+    
+    <div class="header-actions">
+      <button (click)="apriFormNuovo()" class="btn-admin-action">
+        ➕ Nuovo Articolo
+      </button>
+      <button (click)="logout()" class="btn-logout">
+        🚪 Logout
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section Admin -->
+  <section class="hero-section">
+    <div class="hero-badge">Gestione Catalogo</div>
+    <h1 class="hero-title">PANNELLO DI CONTROLLO</h1>
+    <p class="hero-subtitle">Aggiungi nuovi articoli, modifica i dettagli o rimuovi i prodotti dal catalogo.</p>
+
+    <!-- Filtri e Ricerca -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          (input)="applicaFiltroRicerca()" 
+          placeholder="Cerca tra i prodotti..." 
+          class="search-input"
+        >
+      </div>
+
+      <div class="category-buttons">
+        <button (click)="caricaProdotti('tutti')" [class.active]="categoriaSelezionata === 'tutti'" class="cat-btn">Tutti</button>
+        <button (click)="caricaProdotti('cartine')" [class.active]="categoriaSelezionata === 'cartine'" class="cat-btn">Cartine</button>
+        <button (click)="caricaProdotti('filtri')" [class.active]="categoriaSelezionata === 'filtri'" class="cat-btn">Filtri</button>
+        <button (click)="caricaProdotti('accessori')" [class.active]="categoriaSelezionata === 'accessori'" class="cat-btn">Accessori</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Griglia Prodotti Admin -->
+  <main class="container">
+    @if (prodottiFiltrati.length === 0) {
+      <div class="no-products">
+        <div class="no-products-icon">🍂</div>
+        <p>Nessun articolo trovato nel catalogo.</p>
+      </div>
+    } @else {
+      <div class="products-grid">
+        @for (p of prodottiFiltrati; track p.id) {
+          <article class="product-card">
+            <div class="card-image-wrapper">
+              @if (p.foto) {
+                <img [src]="'http://localhost:8080/uploads/' + p.foto" [alt]="p.titolo" class="product-image">
+              } @else {
+                <div class="placeholder-image">
+                  <span class="placeholder-text">UNWIND</span>
+                </div>
+              }
+              <span class="category-badge">{{ p.categoria }}</span>
+            </div>
+
+            <div class="card-content-minimal">
+              <h3 class="product-title-minimal">{{ p.titolo }}</h3>
+
+              <div class="price-container">
+                <span class="product-price">€ {{ p.prezzo | number:'1.2-2' }}</span>
+              </div>
+
+              <div class="admin-card-actions">
+                <button class="btn-edit" (click)="apriFormModifica(p)">✏️ Modifica</button>
+                <button class="btn-delete" (click)="eliminaProdotto(p)">🗑️ Elimina</button>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </main>
+
+  <!-- MODALE FORM (Inserimento / Modifica) -->
+  @if (mostraForm) {
+    <div class="modal-backdrop" (click)="chiudiForm()">
+      <div class="modal-card admin-modal" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="chiudiForm()">×</button>
+
+        <h2 class="modal-title-form">
+          {{ modalitaModifica ? '✏️ Modifica Articolo' : '➕ Nuovo Articolo' }}
+        </h2>
+
+        <form (ngSubmit)="salvaProdotto()" class="admin-form">
+          <div class="form-group">
+            <label>Titolo Articolo</label>
+            <input type="text" [(ngModel)]="formProdotto.titolo" name="titolo" required placeholder="Es. Cartine King Size" class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label>Categoria</label>
+            <select [(ngModel)]="formProdotto.categoria" name="categoria" required class="form-input">
+              <option value="cartine">Cartine</option>
+              <option value="filtri">Filtri</option>
+              <option value="accessori">Accessori</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Prezzo (€)</label>
+            <input type="number" step="0.01" [(ngModel)]="formProdotto.prezzo" name="prezzo" required placeholder="0.00" class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label>Descrizione</label>
+            <textarea [(ngModel)]="formProdotto.descrizione" name="descrizione" rows="3" placeholder="Descrizione..." class="form-input"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Immagine</label>
+            <input type="file" (change)="onFileSelected($event)" accept="image/*" class="form-input-file">
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" (click)="chiudiForm()">Annulla</button>
+            <button type="submit" class="btn-save">
+              {{ modalitaModifica ? 'Aggiorna' : 'Salva' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

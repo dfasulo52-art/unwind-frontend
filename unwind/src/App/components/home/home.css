@@ -1,0 +1,614 @@
+/* ==========================================================================
+   UNWIND - NAPOLI LOUNGE (Cigar & Rum Design System completo)
+   ========================================================================== */
+
+.lounge-wrapper {
+  min-height: 100vh;
+  padding-bottom: 60px;
+  background-color: transparent;
+  color: #f4f8f5;
+}
+
+/* 1. NAVBAR GLASSMORPHISM */
+.lounge-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6%;
+  background: rgba(28, 44, 37, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand-text-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #ffffff;
+}
+
+.brand-subtitle {
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  color: #e5be48;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.btn-admin {
+  background: rgba(45, 68, 57, 0.75);
+  border: 1px solid rgba(229, 190, 72, 0.4);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s;
+}
+
+.btn-admin:hover {
+  transform: scale(1.08);
+  background: rgba(60, 100, 80, 0.9);
+  border-color: #e5be48;
+}
+
+.btn-admin:active {
+  transform: scale(0.92);
+}
+
+/* 2. HERO SECTION */
+.hero-section {
+  text-align: center;
+  padding: 50px 20px 30px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(229, 190, 72, 0.18);
+  border: 1px solid rgba(229, 190, 72, 0.45);
+  color: #e5be48;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 0 0 12px;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  color: #c2d6cb;
+  font-size: 1rem;
+  max-width: 580px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+/* 3. BARRA DI RICERCA & FILTRI CATEGORIA */
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 460px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 22px;
+  background: rgba(35, 54, 45, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #92ab9e;
+}
+
+.search-input:focus {
+  border-color: #e5be48;
+  box-shadow: 0 0 20px rgba(229, 190, 72, 0.3);
+  background: rgba(42, 65, 54, 0.95);
+}
+
+.category-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cat-btn {
+  background: rgba(35, 54, 45, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #c2d6cb;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s, color 0.3s;
+}
+
+.cat-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  color: #ffffff;
+  background: rgba(48, 74, 62, 0.9);
+}
+
+.cat-btn.active {
+  background: #3e7357;
+  color: #ffffff;
+  border-color: #e5be48;
+  box-shadow: 0 6px 18px rgba(62, 115, 87, 0.5);
+}
+
+.cat-btn:active {
+  transform: scale(0.95);
+}
+
+/* 4. GRIGLIA PRODOTTI & CARD JELLY */
+.container {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: rgba(33, 52, 43, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), border-color 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(229, 190, 72, 0.5);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(229, 190, 72, 0.25);
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: rgba(20, 32, 26, 0.6);
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #23372d, #18261f);
+}
+
+.placeholder-text {
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.category-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(20, 32, 26, 0.9);
+  border: 1px solid rgba(229, 190, 72, 0.4);
+  color: #e5be48;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.card-content-minimal {
+  padding: 18px;
+}
+
+.product-title-minimal {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #ffffff;
+}
+
+.card-footer-minimal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #e5be48;
+}
+
+.btn-info {
+  background: #3e7357;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s;
+}
+
+.btn-info:hover {
+  transform: scale(1.1);
+  background: #4b8a68;
+}
+
+/* 5. STRUTTURA BASE DELLE MODALI E BACKDROP */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 24, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #21342b;
+  border: 1px solid rgba(229, 190, 72, 0.4);
+  border-radius: 26px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: jellyPop 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+@keyframes jellyPop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.modal-close:hover {
+  transform: scale(1.15) rotate(90deg);
+}
+
+.no-products {
+  text-align: center;
+  padding: 50px 20px;
+  color: #92ab9e;
+}
+
+/* 6. MODALE DETTAGLI PRODOTTO */
+.modal-image-container {
+  width: 100%;
+  height: 220px;
+  background: #14201a;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-details {
+  padding: 22px;
+}
+
+.modal-category {
+  color: #e5be48;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  margin: 6px 0 10px;
+  color: #ffffff;
+}
+
+.modal-desc {
+  color: #c2d6cb;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.modal-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(18, 28, 23, 0.6);
+  border-radius: 14px;
+  margin-bottom: 18px;
+}
+
+.price-label {
+  color: #a0b5ab;
+  font-size: 0.85rem;
+}
+
+.modal-email-box {
+  background: rgba(62, 115, 87, 0.2);
+  border: 1px solid rgba(62, 115, 87, 0.4);
+  padding: 16px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.email-box-title {
+  font-size: 0.8rem;
+  color: #c2d6cb;
+  margin: 0 0 4px;
+}
+
+.email-address-text {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #e5be48;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.btn-gmail {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  background: #e5be48;
+  color: #0d1410;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s;
+}
+
+.btn-gmail:hover {
+  transform: scale(1.03);
+  background: #f0cc5d;
+}
+
+.btn-gmail:active {
+  transform: scale(0.96);
+}
+
+/* 7. MODALE LOGIN (AREA RISERVATA - NUOVA E CORRETTA) */
+.login-modal {
+  padding: 40px 32px 32px !important;
+  max-width: 440px !important;
+  background: rgba(28, 44, 37, 0.95) !important;
+  border: 1px solid rgba(229, 190, 72, 0.4) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(229, 190, 72, 0.15) !important;
+  position: relative;
+  overflow: visible !important;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-icon {
+  font-size: 2.2rem;
+  display: inline-block;
+  margin-bottom: 10px;
+  background: rgba(229, 190, 72, 0.15);
+  border: 1px solid rgba(229, 190, 72, 0.3);
+  padding: 12px;
+  border-radius: 50%;
+  line-height: 1;
+  box-shadow: 0 0 15px rgba(229, 190, 72, 0.2);
+}
+
+.login-title {
+  margin: 0 0 6px !important;
+  font-size: 1.6rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+}
+
+.login-subtitle {
+  font-size: 0.85rem !important;
+  color: #a0b5ab !important;
+  margin: 0 !important;
+  line-height: 1.4;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  color: #e5be48 !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.login-input {
+  width: 100% !important;
+  padding: 14px 18px !important;
+  background: rgba(18, 28, 23, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 16px !important;
+  color: #ffffff !important;
+  font-size: 0.95rem !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.login-input::placeholder {
+  color: #6a8275 !important;
+}
+
+.login-input:focus {
+  border-color: #e5be48 !important;
+  background: rgba(25, 38, 31, 0.95) !important;
+  box-shadow: 0 0 18px rgba(229, 190, 72, 0.25) !important;
+}
+
+.btn-login-submit {
+  width: 100% !important;
+  padding: 15px !important;
+  margin-top: 8px;
+  background: #3e7357 !important;
+  border: 1px solid rgba(229, 190, 72, 0.4) !important;
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  font-weight: 800 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.5px;
+  cursor: pointer !important;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s, box-shadow 0.3s !important;
+}
+
+.btn-login-submit:hover {
+  transform: scale(1.03) translateY(-2px) !important;
+  background: #4b8a68 !important;
+  border-color: #e5be48 !important;
+  box-shadow: 0 8px 20px rgba(62, 115, 87, 0.5), 0 0 15px rgba(229, 190, 72, 0.3) !important;
+}
+
+.btn-login-submit:active {
+  transform: scale(0.96) !important;
+}
+
+.login-modal .modal-close {
+  top: 18px !important;
+  right: 18px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  font-size: 1.1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+}
+
+.login-modal .modal-close:hover {
+  transform: scale(1.15) rotate(90deg) !important;
+  background: rgba(229, 190, 72, 0.3) !important;
+}
+
+.login-error-msg {
+  background: rgba(220, 53, 69, 0.2) !important;
+  border: 1px solid rgba(220, 53, 69, 0.4) !important;
+  color: #ff8e8e !important;
+  padding: 12px !important;
+  border-radius: 14px !important;
+  font-size: 0.85rem !important;
+  text-align: center;
+}
+
+/* 8. MEDIA QUERIES MOBILE (PER INSTAGRAM) */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+  }
+  
+  .card-image-wrapper {
+    height: 150px;
+  }
+  
+  .product-title-minimal {
+    font-size: 0.95rem;
+  }
+  
+  .product-price {
+    font-size: 1rem;
+  }
+}

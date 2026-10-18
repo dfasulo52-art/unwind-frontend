@@ -1,0 +1,545 @@
+/* ==========================================================================
+   UNWIND - NAPOLI LOUNGE (Admin Panel - Cigar & Rum Design System)
+   ========================================================================== */
+
+:host {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.lounge-wrapper {
+  min-height: 100vh;
+  padding-bottom: 60px;
+  background-color: transparent;
+  color: #f4f8f5;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* 1. NAVBAR GLASSMORPHISM */
+.lounge-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  background: rgba(28, 44, 37, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 0 0 20px 20px;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+}
+
+.brand-text-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.brand-subtitle {
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  color: #e5be48;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-admin-action {
+  background: #3e7357;
+  color: #ffffff;
+  border: 1px solid rgba(229, 190, 72, 0.4);
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s, box-shadow 0.3s;
+}
+
+.btn-admin-action:hover {
+  transform: scale(1.05) translateY(-2px);
+  background: #4b8a68;
+  box-shadow: 0 6px 16px rgba(62, 115, 87, 0.4);
+}
+
+.btn-admin-action:active {
+  transform: scale(0.95);
+}
+
+.btn-logout {
+  background: rgba(220, 53, 69, 0.15);
+  color: #ff8e8e;
+  border: 1px solid rgba(220, 53, 69, 0.4);
+  padding: 9px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s;
+}
+
+.btn-logout:hover {
+  background: rgba(220, 53, 69, 0.3);
+  transform: scale(1.05);
+}
+
+.btn-logout:active {
+  transform: scale(0.95);
+}
+
+/* 2. HERO SECTION */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px 30px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(229, 190, 72, 0.18);
+  border: 1px solid rgba(229, 190, 72, 0.45);
+  color: #e5be48;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.hero-subtitle {
+  color: #c2d6cb;
+  font-size: 0.95rem;
+  max-width: 580px;
+  margin: 0 auto 25px;
+  line-height: 1.5;
+}
+
+/* 3. BARRA DI RICERCA & FILTRI */
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.search-box {
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 13px 20px;
+  background: rgba(35, 54, 45, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #92ab9e;
+}
+
+.search-input:focus {
+  border-color: #e5be48;
+  box-shadow: 0 0 18px rgba(229, 190, 72, 0.25);
+  background: rgba(42, 65, 54, 0.95);
+}
+
+.category-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cat-btn {
+  background: rgba(35, 54, 45, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #c2d6cb;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s, color 0.3s;
+}
+
+.cat-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  color: #ffffff;
+  background: rgba(48, 74, 62, 0.9);
+}
+
+.cat-btn.active {
+  background: #3e7357;
+  color: #ffffff;
+  border-color: #e5be48;
+  box-shadow: 0 4px 14px rgba(62, 115, 87, 0.5);
+}
+
+.cat-btn:active {
+  transform: scale(0.95);
+}
+
+/* 4. GRIGLIA E CARD PRODOTTI ADMIN */
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 24px 60px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: rgba(33, 52, 43, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), border-color 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(229, 190, 72, 0.5);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(229, 190, 72, 0.25);
+}
+
+.card-image-wrapper {
+  position: relative;
+  height: 190px;
+  background: rgba(20, 32, 26, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #23372d, #18261f);
+}
+
+.placeholder-text {
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.category-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(20, 32, 26, 0.9);
+  border: 1px solid rgba(229, 190, 72, 0.4);
+  color: #e5be48;
+  font-size: 0.65rem;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.card-content-minimal {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-title-minimal {
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  color: #e5be48;
+  font-weight: 800;
+}
+
+/* Azioni Modifica / Elimina */
+.admin-card-actions {
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+
+.btn-edit, .btn-delete {
+  flex: 1;
+  padding: 9px 0;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s;
+}
+
+.btn-edit {
+  background: rgba(62, 115, 87, 0.3);
+  color: #ffffff;
+  border: 1px solid rgba(62, 115, 87, 0.6);
+}
+
+.btn-edit:hover {
+  background: #3e7357;
+  transform: scale(1.05);
+}
+
+.btn-delete {
+  background: rgba(220, 53, 69, 0.15);
+  color: #ff8e8e;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.btn-delete:hover {
+  background: rgba(220, 53, 69, 0.35);
+  transform: scale(1.05);
+}
+
+/* 5. MODALE GESTIONE PRODOTTO ADMIN */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 24, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: rgba(28, 44, 37, 0.95);
+  width: 90%;
+  max-width: 480px;
+  border-radius: 26px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(229, 190, 72, 0.15);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(229, 190, 72, 0.4);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  animation: jellyPop 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+@keyframes jellyPop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s;
+}
+
+.modal-close:hover {
+  transform: scale(1.15) rotate(90deg);
+  background: rgba(229, 190, 72, 0.3);
+}
+
+.admin-modal {
+  padding: 30px 24px;
+  overflow-y: auto;
+}
+
+.modal-title-form {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 22px;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #e5be48;
+  letter-spacing: 0.5px;
+}
+
+.form-input {
+  padding: 12px 16px;
+  background: rgba(18, 28, 23, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  font-size: 0.9rem;
+  color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #e5be48;
+  background: rgba(25, 38, 31, 0.95);
+  box-shadow: 0 0 15px rgba(229, 190, 72, 0.2);
+}
+
+.form-input-file {
+  font-size: 0.85rem;
+  color: #c2d6cb;
+  padding: 8px 0;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 11px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #c2d6cb;
+  transition: background 0.3s;
+}
+
+.btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.btn-save {
+  background: #3e7357;
+  color: #ffffff;
+  border: 1px solid rgba(229, 190, 72, 0.4);
+  padding: 11px 24px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), background 0.3s, box-shadow 0.3s;
+}
+
+.btn-save:hover {
+  transform: scale(1.05) translateY(-2px);
+  background: #4b8a68;
+  box-shadow: 0 6px 18px rgba(62, 115, 87, 0.5);
+}
+
+.btn-save:active {
+  transform: scale(0.95);
+}
+
+.no-products {
+  text-align: center;
+  color: #92ab9e;
+  padding: 60px 0;
+}
+
+.no-products-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
