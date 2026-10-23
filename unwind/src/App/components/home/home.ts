@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
@@ -19,7 +19,8 @@ export interface Prodotto {
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './home.html',
-  styleUrls: ['./home.css']
+  styleUrls: ['./home.css'],
+  encapsulation: ViewEncapsulation.None // Sblocca l'incapsulamento dei CSS
 })
 export class HomeComponent implements OnInit {
   prodotti: Prodotto[] = [];
