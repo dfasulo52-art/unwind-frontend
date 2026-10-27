@@ -7,7 +7,8 @@ import { Prodotto } from '../models/prodotto.model';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:8080/api/prodotti';
+  // Aggiunto /api/prodotti alla fine dell'URL
+  private apiUrl = 'https://unwind-backend-i6c8.onrender.com/api/prodotti';
 
   constructor(private http: HttpClient) {}
 

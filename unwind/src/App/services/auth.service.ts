@@ -7,7 +7,8 @@ import { Observable, tap } from 'rxjs';
 })
 export class AuthService {
   private loggedIn: boolean = false;
-  private apiUrl = 'http://localhost:8080/api/admin/login';
+  // Aggiornato con l'URL del backend su Render
+  private apiUrl = 'https://unwind-backend-i6c8.onrender.com/api/admin/login';
 
   constructor(private http: HttpClient) {}
 
