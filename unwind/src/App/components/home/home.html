@@ -15,7 +15,7 @@
   </header>
 
   <section class="hero-section">
-    <div class="hero-badge">• Napoli Lounge •</div>
+    <div class="hero-badge">Napoli Lounge •</div>
     <h1 class="hero-title">THE UNWIND PROJECT</h1>
     <p class="hero-subtitle">Selezione raffinata di cartine, filtri, sigari e accessori da fumo pregiati.</p>
 
@@ -51,7 +51,7 @@
           <article class="product-card">
             <div class="card-image-wrapper">
               @if (p.foto) {
-                <img [src]="'http://localhost:8080/uploads/' + p.foto" [alt]="p.titolo" class="product-image">
+                <img [src]="'https://unwind-backend-i6c8.onrender.com/uploads/' + p.foto" [alt]="p.titolo" class="product-image">
               } @else {
                 <div class="placeholder-image">
                   <span class="placeholder-text">UNWIND</span>
@@ -80,7 +80,7 @@
         
         <div class="modal-image-container">
           @if (prodottoSelezionato.foto) {
-            <img [src]="'http://localhost:8080/uploads/' + prodottoSelezionato.foto" [alt]="prodottoSelezionato.titolo" class="modal-image">
+            <img [src]="'https://unwind-backend-i6c8.onrender.com/uploads/' + prodottoSelezionato.foto" [alt]="prodottoSelezionato.titolo" class="modal-image">
           } @else {
             <div class="placeholder-image">
               <span class="placeholder-text">UNWIND</span>

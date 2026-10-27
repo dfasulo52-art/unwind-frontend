@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   passwordInput: string = '';
   loginError: boolean = false;
 
-  private apiUrl = 'http://localhost:8080/api/prodotti';
+  private apiUrl = 'https://unwind-backend-i6c8.onrender.com/api/prodotti';
 
   constructor(
     private http: HttpClient,

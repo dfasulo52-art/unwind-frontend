@@ -34,7 +34,7 @@ export class AdminComponent implements OnInit {
   formProdotto: Prodotto = this.getEmptyProdotto();
   fileSelezionato: File | null = null;
 
-  private apiUrl = 'http://localhost:8080/api/prodotti';
+  private apiUrl = 'https://unwind-backend-i6c8.onrender.com/api/prodotti';
 
   constructor(
     private http: HttpClient,
